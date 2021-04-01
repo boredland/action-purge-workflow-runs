@@ -12,13 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm install
+          yarn
       - run: |
-          npm run all
+          yarn all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        env:
+          ACTIONS_STEP_DEBUG: true
         with:
-          milliseconds: 1000
+          inactiveDays: 10
