@@ -1,43 +1,32 @@
 {
-  "name": "typescript-action",
+  "name": "remove-inactive-check-suites-action",
   "version": "0.0.0",
-  "private": true,
-  "description": "TypeScript template action",
-  "main": "lib/main.js",
+  "private": false,
+  "description": "action to purge unused workflows",
+  "main": "src/main.ts",
   "scripts": {
-    "build": "tsc",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt",
+    "lint": "eslint --ext .ts .",
+    "build": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+    "all": "yarn build && yarn format && yarn lint && yarn test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
-  },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
-  "author": "",
+  "author": "Jonas Strassel",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.9",
-    "@typescript-eslint/parser": "^4.8.1",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
     "@vercel/ncc": "^0.27.0",
-    "eslint": "^7.17.0",
-    "eslint-plugin-github": "^4.1.1",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-jest": "^24.3.2",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^4.0.0",
     "prettier": "2.2.1",
     "ts-jest": "^26.5.4",
     "typescript": "^4.2.3"
