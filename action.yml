@@ -1,5 +1,5 @@
 name: 'remove-inactive-check-suites'
-description: 'Action to clean your actions tab from unused workflows'
+description: 'action to purge unused workflows'
 author: 'Jonas Strassel'
 inputs:
   inactiveDays:
