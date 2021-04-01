@@ -4,7 +4,7 @@ import * as path from 'path'
 
 // shows how the runner will run a javascript action with env / stdout protocol
 test('test runs', () => {
-  process.env['INPUT_INACTIVEDAYS'] = '10'
+  process.env['INPUT_DAYS-OLD'] = '10'
   const np = process.execPath
   const ip = path.join(__dirname, '..', 'dist', 'index.js')
   const options: cp.ExecFileSyncOptions = {

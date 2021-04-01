@@ -1,10 +1,13 @@
-name: 'remove-inactive-check-suites'
-description: 'action to purge unused workflows'
+name: 'purge-workflow-runs'
+description: 'action to purge workflow runs'
 author: 'Jonas Strassel'
 inputs:
-  inactivedays:
+  token:
+    required: true
+    description: "token.."
+  days-old:
     required: false
-    description: 'days without a run until the check suites get removed'
+    description: 'least days the runs have to be old to get purged'
     default: '30'
 runs:
   using: 'node12'
