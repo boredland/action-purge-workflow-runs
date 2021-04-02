@@ -1,10 +1,10 @@
 name: 'purge-workflow-runs'
 description: 'action to purge workflow runs'
 author: 'Jonas Strassel'
+branding:
+  icon: minus-circle
+  color: blue
 inputs:
-  token:
-    required: true
-    description: "token.."
   days-old:
     required: false
     description: 'least days the runs have to be old to get purged'

@@ -22,7 +22,7 @@ async function run(): Promise<void> {
     const lastPage = Math.trunc(workflowRuns.total_count / perPage) + remainderPage
     core.info(`last page (first page to search on): ${lastPage}`)
 
-    for (let i = lastPage; i--; i >= 0) {
+    for (let i = lastPage; i--; i >= (lastPage - 30)) {
       const runs = (await octokit.actions.listWorkflowRunsForRepo({ ...github.context.repo, per_page: perPage, page: i })).data.workflow_runs
       const runIds = runs.filter(run => !dayjs(run.created_at).isAfter(lastKeepDate)).map(run => {
         return run.id
