@@ -13,7 +13,7 @@
   "author": "Jonas Strassel",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.4.0",
+    "@actions/core": "^1.8.2",
     "dayjs": "^1.10.5"
   },
   "devDependencies": {
