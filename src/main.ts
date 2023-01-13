@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 async function run(): Promise<void> {
   try {
-    const olderDays = parseInt(core.getInput('days-old'))
+    const olderDays = parseInt(core.getInput('days-old') || '30')
     const ignoreOpenPullRequests = core.getInput('ignore-open-pull-requests') === 'true'
     const lastKeepDate = dayjs().subtract(olderDays, 'days')
 
