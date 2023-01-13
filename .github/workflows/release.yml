@@ -1,0 +1,32 @@
+# todo
+name: Generate Release 🚀
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    name: Create Release 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo 📥
+        uses: actions/checkout@v3
+
+      - name: Set up Node 🛠
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Semantic Release 🔥
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          semantic_version: 18
+          extra_plugins: |
+            @semantic-release/commit-analyzer@9.0.2
+            @semantic-release/release-notes-generator@10.0.3
+            @semantic-release/npm@9.0.1
+            @semantic-release/git@10.0.1
+            @semantic-release/github@8.0.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
