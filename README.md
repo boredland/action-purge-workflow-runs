@@ -1,15 +1,17 @@
-[![build-test](https://github.com/boredland/action-purge-workflow-runs/actions/workflows/test.yml/badge.svg)](https://github.com/boredland/action-purge-workflow-runs/actions/workflows/test.yml)
+[![build-test](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml/badge.svg)](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml)
 
-# Purge old workflow runs from github actions!
+# Purge old workflow runs from GitHub Actions
 
-when using github actions and a lot of different actions, you'll soon face the issue of deprecated and unused workflows piling up in your actions tab.
+When using GitHub Actions with a lot of different actions and workflows, you'll soon face the issue of deprecated and unused workflows piling up in your `Actions` tab.
 
-this action aims to clean out those outdated workflows by removing old runs.
+This action aims to clean out those outdated workflows by removing old runs.
+
+> You can't decide to ignore runs related to open Pull Requests by using `ignore-open-pull-requests: true`, as shown in the below example.
 
 ## Usage example
 
 ```yaml
-name: workflow run cleanup
+name: Cleanup Workflow Runs
 on:
   workflow_dispatch:
   schedule:
@@ -18,10 +20,10 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     steps:
-      - name: clean workflow runs
+      - name: Cleanup workflow runs
         uses: iamludal/action-purge-workflow-runs@main
         with:
-          days-old: 60
+          days-old: 30
           ignore-open-pull-requests: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
