@@ -1,17 +1,17 @@
-name: 'purge-workflow-runs'
-description: 'action to purge workflow runs'
-author: 'Jonas Strassel'
+name: 'Purge Workflows Runs'
+description: 'Action to purge workflow runs'
+author: 'Ludal'
 branding:
-  icon: minus-circle
-  color: blue
+  icon: trash-2
+  color: red
 inputs:
   days-old:
     required: false
-    description: 'least days the runs have to be old to get purged'
+    description: 'Least days the runs have to be old to get purged'
     default: '30'
   ignore-open-pull-requests:
     required: false
-    description: 'ignore runs having open pull requests'
+    description: 'Ignore runs having open pull requests'
     default: 'false'
 runs:
   using: 'node16'
