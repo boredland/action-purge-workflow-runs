@@ -9,7 +9,7 @@ test('test runs', () => {
   const ip = path.join(__dirname, '..', 'dist', 'index.js')
   const options: cp.ExecFileSyncOptions = {
     env: process.env,
-    stdio: 'inherit'
+    stdio: 'inherit',
   }
   cp.execFileSync(np, [ip], options)
 })
