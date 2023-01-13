@@ -6,7 +6,7 @@ When using GitHub Actions with a lot of different actions and workflows, you'll 
 
 This action aims to clean out those outdated workflows by removing old runs.
 
-> You can't decide to ignore runs related to open Pull Requests by using `ignore-open-pull-requests: true`, as shown in the below example.
+> You can decide to ignore runs related to open Pull Requests by using `ignore-open-pull-requests: true`, as shown in the below example.
 
 ## Usage example
 
