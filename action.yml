@@ -9,6 +9,10 @@ inputs:
     required: false
     description: 'least days the runs have to be old to get purged'
     default: '30'
+  ignore-open-pull-requests:
+    required: false
+    description: 'ignore runs having open pull requests'
+    default: 'false'
 runs:
   using: 'node16'
   main: 'dist/index.js'

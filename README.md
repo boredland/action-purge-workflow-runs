@@ -22,6 +22,7 @@ jobs:
         uses: iamludal/action-purge-workflow-runs@main
         with:
           days-old: 60
+          ignore-open-pull-requests: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

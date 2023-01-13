@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 async function run(): Promise<void> {
   try {
     const olderDays = parseInt(core.getInput('days-old'))
+    const ignoreOpenPullRequests = core.getInput('ignore-open-pull-requests') === 'true'
     const lastKeepDate = dayjs().subtract(olderDays, 'days')
 
     core.info(
@@ -15,6 +16,14 @@ async function run(): Promise<void> {
 
     const perPage = 10
     const workflowRuns = (await octokit.actions.listWorkflowRunsForRepo({ ...github.context.repo, per_page: perPage, page: 0 })).data
+    
+    if (ignoreOpenPullRequests) {
+      const filteredRuns = workflowRuns.workflow_runs.filter(run => run.pull_requests.length === 0)
+      const oldCount = workflowRuns.total_count
+      workflowRuns.workflow_runs = filteredRuns
+      workflowRuns.total_count = filteredRuns.length
+      core.info(`filtered out ${oldCount - filteredRuns.length} runs having open pull requests`)
+    }
 
     const totalCount = workflowRuns.total_count
     core.info(`total deletion candidates: ${totalCount}`)
