@@ -1,6 +1,6 @@
 name: 'Purge Workflows Runs'
 description: 'Action to purge workflow runs'
-author: 'Ludal'
+author: 'Jonas Strassel'
 branding:
   icon: trash-2
   color: red

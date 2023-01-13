@@ -1,4 +1,4 @@
-[![build-test](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml/badge.svg)](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml)
+[![build-test](https://github.com/boredland/action-purge-workflow-runs/actions/workflows/test.yml/badge.svg)](https://github.com/boredland/action-purge-workflow-runs/actions/workflows/test.yml)
 
 # Purge old workflow runs from GitHub Actions
 
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cleanup workflow runs
-        uses: iamludal/action-purge-workflow-runs@main
+        uses: boredland/action-purge-workflow-runs@main
         with:
           days-old: 30
           ignore-open-pull-requests: true
