@@ -10,5 +10,5 @@ inputs:
     description: 'least days the runs have to be old to get purged'
     default: '30'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
