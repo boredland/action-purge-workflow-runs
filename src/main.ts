@@ -16,14 +16,6 @@ async function run(): Promise<void> {
 
     const perPage = 10
     const workflowRuns = (await octokit.actions.listWorkflowRunsForRepo({ ...github.context.repo, per_page: perPage, page: 0 })).data
-    
-    if (ignoreOpenPullRequests) {
-      const filteredRuns = workflowRuns.workflow_runs.filter(run => run.pull_requests.length === 0)
-      const oldCount = workflowRuns.total_count
-      workflowRuns.workflow_runs = filteredRuns
-      workflowRuns.total_count = filteredRuns.length
-      core.info(`filtered out ${oldCount - filteredRuns.length} runs having open pull requests`)
-    }
 
     const totalCount = workflowRuns.total_count
     core.info(`total deletion candidates: ${totalCount}`)
@@ -33,9 +25,9 @@ async function run(): Promise<void> {
 
     for (let i = lastPage; i--; i >= (lastPage - 30)) {
       const runs = (await octokit.actions.listWorkflowRunsForRepo({ ...github.context.repo, per_page: perPage, page: i })).data.workflow_runs
-      const runIds = runs.filter(run => !dayjs(run.created_at).isAfter(lastKeepDate)).map(run => {
-        return run.id
-      })
+      const runIds = runs.filter(run => {
+        !dayjs(run.created_at).isAfter(lastKeepDate) && (!ignoreOpenPullRequests || run.pull_requests.length === 0)
+      }).map(run => run.id)
 
       if (runIds.length === 0) {
         core.info(`no runs are older than ${lastKeepDate.format()}`)
