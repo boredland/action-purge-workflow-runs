@@ -2,16 +2,15 @@
   "name": "purge-workflow-runs",
   "version": "0.0.0",
   "private": false,
-  "description": "action to purge workflow runs",
+  "description": "GitHub Action to purge workflow runs",
+  "author": "Ludal",
+  "license": "MIT",
   "main": "src/main.ts",
   "scripts": {
     "lint": "eslint --ext .ts .",
-    "build": "ncc build --source-map --license licenses.txt",
-    "test": "jest",
-    "all": "yarn build && yarn lint && yarn test"
+    "build": "ncc build",
+    "test": "jest"
   },
-  "author": "Ludal",
-  "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
     "dayjs": "^1.11.7"
