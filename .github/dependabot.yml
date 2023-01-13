@@ -1,8 +1,8 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
-    open-pull-requests-limit: 20
+  - package-ecosystem: "npm"
+    directory: "/"
+    open-pull-requests-limit: 10
     # Check the npm registry for updates every month
     schedule:
-      interval: 'monthly'
+      interval: "weekly"
