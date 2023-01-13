@@ -1,4 +1,4 @@
-[![build-test](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml/badge.svg)](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/test.yml)
+[![build-test](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/integration.yml/badge.svg)](https://github.com/iamludal/action-purge-workflow-runs/actions/workflows/integration.yml)
 
 # Purge old workflow runs from GitHub Actions
 
